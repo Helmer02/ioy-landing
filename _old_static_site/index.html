@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IOY | Soluções Digitais & SaaS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #030408;            /* Near-black indigo */
+      --bg-soft: #0c0d16;       /* Slightly lighter */
+      --card: rgba(255,255,255,0.02);
+      --card-border: rgba(169, 84, 242, 0.15);
+      --text: #f5f7ff;
+      --muted: #aAB4DE;
+      --primary: #3EE5ED;       /* Vibrant Cyan */
+      --primary-2: #A954F2;     /* Vivid Purple/Magenta */
+      --accent: #5e6cf2;        /* Electric Blue transition */
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --max-width: 1200px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(62, 229, 237, 0.12), transparent 30%),
+        radial-gradient(circle at top right, rgba(169, 84, 242, 0.12), transparent 25%),
+        linear-gradient(180deg, #030408 0%, #000000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--muted);
+      font-size: 0.92rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 0 15px rgba(62, 229, 237, 0.7);
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.1;
+      margin-top: 12px;
+    }
+
+    .section-header p {
+      max-width: 620px;
+      color: var(--muted);
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(3, 4, 8, 0.7);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.08rem;
+      letter-spacing: 0.3px;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(169, 84, 242, 0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 16px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 12px 28px rgba(169, 84, 242, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.1);
+      box-shadow: 0 15px 32px rgba(169, 84, 242, 0.4);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.07);
+    }
+
+    .hero {
+      padding: 72px 0 46px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.4rem, 6vw, 4.8rem);
+      line-height: 0.98;
+      letter-spacing: -1.8px;
+      margin: 18px 0 18px;
+      max-width: 760px;
+    }
+
+    .hero-content p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .stat-card span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.05));
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 30px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-main-image {
+      aspect-ratio: 4 / 4.3;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(62, 229, 237, 0.2), rgba(169, 84, 242, 0.15));
+      border: 1px solid rgba(169, 84, 242, 0.15);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .floating-card {
+      position: absolute;
+      right: -18px;
+      bottom: 24px;
+      width: min(300px, 78%);
+      background: rgba(3, 4, 8, 0.9);
+      border: 1px solid rgba(169, 84, 242, 0.2);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .floating-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .floating-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .services-grid,
+    .portfolio-grid,
+    .benefits-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .service-card,
+    .benefit-card,
+    .testimonial,
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, rgba(62, 229, 237, 0.15), rgba(169, 84, 242, 0.15));
+      border: 1px solid rgba(169, 84, 242, 0.15);
+      color: var(--primary);
+      text-shadow: 0 0 10px rgba(62, 229, 237, 0.5);
+    }
+
+    .service-card h3,
+    .benefit-card h3,
+    .contact-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 10px;
+    }
+
+    .service-card p,
+    .benefit-card p,
+    .testimonial p,
+    .contact-card p {
+      color: var(--muted);
+    }
+
+    .portfolio-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .portfolio-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 26px;
+      min-height: 340px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--shadow);
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.45s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.06);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 20px;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.98));
+    }
+
+    .portfolio-overlay h3 {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .portfolio-overlay p {
+      color: #d7def8;
+      font-size: 0.95rem;
+    }
+
+    .benefits-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .about-image {
+      min-height: 400px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(62, 229, 237, 0.18), rgba(169, 84, 242, 0.12));
+      border: 1px solid rgba(169, 84, 242, 0.1);
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.85);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .about-content h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin: 14px 0;
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .about-list div {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+
+    .about-list strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .testimonial strong {
+      display: block;
+      margin-top: 16px;
+      font-size: 1rem;
+    }
+
+    .testimonial span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, rgba(62, 229, 237, 0.08), rgba(169, 84, 242, 0.12));
+      border: 1px solid rgba(169, 84, 242, 0.15);
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-box h2 {
+      font-size: clamp(1.9rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin: 12px 0 14px;
+    }
+
+    .contact-box p {
+      color: #dce3ff;
+      max-width: 700px;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .contact-mini-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    footer {
+      padding: 28px 0 48px;
+      color: var(--muted);
+    }
+
+    .footer-line {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .tag-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .about-box,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .portfolio-grid,
+      .benefits-grid,
+      .testimonials {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .floating-card {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        margin-top: 16px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-stats,
+      .services-grid,
+      .portfolio-grid,
+      .benefits-grid,
+      .testimonials {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box,
+      .service-card,
+      .benefit-card,
+      .testimonial,
+      .contact-card {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#inicio" class="logo">
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="border-radius:8px; overflow:hidden;">
+          <circle cx="50" cy="35" r="7" fill="url(#grad)" />
+          <rect x="43" y="48" width="14" height="40" rx="7" fill="url(#grad)" />
+          <rect x="18" y="16" width="14" height="40" rx="7" transform="rotate(-45 25 36)" fill="url(#grad)" />
+          <rect x="68" y="16" width="14" height="40" rx="7" transform="rotate(45 75 36)" fill="url(#grad)" />
+          <defs>
+            <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3EE5ED" />
+              <stop offset="100%" stop-color="#A954F2" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>IOY Premium Tech</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#servicos">Soluções</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#sobre">Nossa Agência</a>
+        <a href="#contato">Contato</a>
+      </nav>
+
+      <a href="#contato" class="btn btn-primary">Fale com um Especialista</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge"><span class="dot"></span> Software House & Agência Digital de Alta Performance</div>
+          <h1>Soluções digitais premium para escalar o seu negócio.</h1>
+          <p>
+            Desenvolvemos produtos SaaS inovadores, sites institucionais de alta conversão e e-commerces robustos para empresas que exigem excelência, autoridade e resultados.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn btn-primary">Ver Nossos Projetos</a>
+            <a href="#servicos" class="btn btn-secondary">Conhecer Soluções</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <strong>150+</strong>
+              <span>Projetos entregues com sucesso</span>
+            </div>
+            <div class="stat-card">
+              <strong>99.9%</strong>
+              <span>Uptime em nossos produtos SaaS</span>
+            </div>
+            <div class="stat-card">
+              <strong>ROI</strong>
+              <span>Foco total no retorno para o cliente</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="hero-main-image">
+              <div>
+                <strong style="font-size:1.15rem; display:block; margin-bottom:8px;">Desenvolvimento Customizado</strong>
+                <span>Sistemas em nuvem escaláveis, sites ultrarrápidos e interfaces deslumbrantes.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="floating-card">
+            <h3>Arquitetura Moderna</h3>
+            <p>
+              Utilizamos as melhores tecnologias do mercado para garantir segurança, estabilidade e um design de tirar o fôlego.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="badge"><span class="dot"></span> Nossas Soluções</div>
+            <h2>O parceiro ideal para transformar sua visão em tecnologia.</h2>
+          </div>
+          <p>
+            Atuamos de ponta a ponta no desenvolvimento digital, unindo design de alto luxo a engenharia de software avançada.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="service-icon">✦</div>
+            <h3>Produtos SaaS Customizados</h3>
+            <p>Criamos sistemas web e painéis administrativos responsivos, escaláveis e seguros para gerenciar o seu ecossistema digital.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">◆</div>
+            <h3>Sites & Landing Pages</h3>
+            <p>Desenvolvimento de sites institucionais otimizados para conversão (SEO), com interfaces dinâmicas que encantam seus clientes.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">✺</div>
+            <h3>Plataformas E-commerce</h3>
+            <p>Lojas virtuais robustas integradas com os principais meios de pagamento e logística, prontas para vender no automático.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="badge"><span class="dot"></span> Nosso Portfólio</div>
+            <h2>Projetos que definem o padrão premium do mercado.</h2>
+          </div>
+          <p>
+            Explore alguns dos nossos trabalhos mais recentes: desde complexos sistemas de gestão até vitrines digitais imersivas.
+          </p>
+        </div>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80" alt="SaaS Dashboard">
+            <div class="portfolio-overlay">
+              <h3>SaaS & Dashboards</h3>
+              <p>Interfaces complexas transformadas em experiências simples, intuitivas e ricas em métricas em tempo real.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80" alt="Website Comercial">
+            <div class="portfolio-overlay">
+              <h3>Sites Institucionais</h3>
+              <p>Identidade visual imponente e performance extrema para destacar sua marca no ambiente digital.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-item">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80" alt="E-commerce Experience">
+            <div class="portfolio-overlay">
+              <h3>E-commerce Experience</h3>
+              <p>Jornadas de compra fluidas e design focado na conversão para aumentar o seu faturamento online.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="badge"><span class="dot"></span> O Diferencial IOY</div>
+            <h2>Por que empresas inovadoras escalam com a gente?</h2>
+          </div>
+          <p>
+            Nossa abordagem vai além do código; unimos estratégia de negócios, pesquisa de UX e engenharia de ponta.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <h3>Alta Performance (SEO)</h3>
+            <p>Construímos produtos otimizados, rápidos e que garantem a melhor indexação nos motores de busca, atraindo mais tráfego orgânico.</p>
+          </article>
+
+          <article class="benefit-card">
+            <h3>Design Premium (UX/UI)</h3>
+            <p>Interfaces visualmente deslumbrantes que agregam luxo e confiança, projetadas meticulosamente para as necessidades do usuário.</p>
+          </article>
+
+          <article class="benefit-card">
+            <h3>Arquitetura Escalável</h3>
+            <p>Código sustentável e infraestrutura em nuvem blindada, preparados para suportar o crescimento explosivo do seu negócio.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="about-box">
+          <div class="about-image">
+            <div>
+              <strong style="font-size:1.2rem; display:block; margin-bottom:8px;">A Excelência em Código</strong>
+              <span>Engenharia de software alinhada à arte visual.</span>
+            </div>
+          </div>
+
+          <div class="about-content">
+            <div class="badge"><span class="dot"></span> Nossa Cultura Digital</div>
+            <h2>Tecnologia pensada para o próximo nível.</h2>
+            <p>
+              A IOY nasceu do desejo de romper com a mediocridade do mercado de TI. Acreditamos que um software não deve apenas funcionar; ele deve impressionar.
+            </p>
+            <p>
+              Seja o nascimento de uma nova startup SaaS ou a digitalização de uma grande marca corporativa, somos os parceiros que entregam resultado, beleza e inovação.
+            </p>
+
+            <div class="about-list">
+              <div>
+                <span>✔</span>
+                <div>
+                  <strong>Código Limpo e Moderno</strong>
+                  <span>Desenvolvemos seguindo as melhores práticas globais de engenharia de software atual.</span>
+                </div>
+              </div>
+
+              <div>
+                <span>✔</span>
+                <div>
+                  <strong>Foco Direto em Conversão</strong>
+                  <span>Cada botão e contraste de cor é pensado para maximizar seus resultados reais.</span>
+                </div>
+              </div>
+
+              <div>
+                <span>✔</span>
+                <div>
+                  <strong>Suporte Técnico Ativo</strong>
+                  <span>Estaremos lado a lado com sua empresa, garantindo a evolução contínua da plataforma.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <div class="badge"><span class="dot"></span> Depoimentos</div>
+            <h2>O que nossos parceiros estão dizendo.</h2>
+          </div>
+          <p>
+            Empreendedores e empresas que revolucionaram sua presença digital em parceria com a IOY Tech.
+          </p>
+        </div>
+
+        <div class="testimonials">
+          <article class="testimonial">
+            <p>“O dashboard SaaS que a IOY desenvolveu reduziu nosso trabalho manual em 80%. O visual encanta nossos clientes logados todos os dias.”</p>
+            <strong>Felipe M.</strong>
+            <span>CEO, Startup FinTech</span>
+          </article>
+
+          <article class="testimonial">
+            <p>“Nosso novo e-commerce não só é extremamente rápido e responsivo, como ajudou a dobrar nossa conversão de vendas já no primeiro mês.”</p>
+            <strong>Marina R.</strong>
+            <span>Diretora, Marca Moda</span>
+          </article>
+
+          <article class="testimonial">
+            <p>“A qualidade do código e do design premium posicionaram nossa agência como líder de mercado. Uma verdadeira obra de arte tecnológica!”</p>
+            <strong>Carlos S.</strong>
+            <span>Founder, Consultoria</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contato">
+      <div class="container contact-wrap">
+        <div class="contact-box">
+          <div class="badge"><span class="dot"></span> Inicie um Projeto</div>
+          <h2>Preparado para o padrão IOY Tech?</h2>
+          <p>
+            Agende uma reunião estratégica com nossos especialistas em desenvolvimento e descubra como criar um produto digital rentável e escalável.
+          </p>
+
+          <div class="contact-actions">
+            <a href="#" class="btn btn-primary" target="_blank">Agendar Consultoria</a>
+            <a href="#" class="btn btn-secondary" target="_blank">Acessar Instagram</a>
+          </div>
+
+          <div class="tag-row">
+            <span class="tag">Sistemas SaaS</span>
+            <span class="tag">Lojas Virtuais</span>
+            <span class="tag">Sites de Alta Conversão</span>
+            <span class="tag">Startups</span>
+          </div>
+        </div>
+
+        <div class="contact-mini-grid">
+          <article class="contact-card">
+            <h3>Contato Comercial</h3>
+            <p>comercial@ioy.com.br</p>
+          </article>
+
+          <article class="contact-card">
+            <h3>Nosso Instagram</h3>
+            <p>@ioy.tech</p>
+          </article>
+
+          <article class="contact-card">
+            <h3>Presença Global</h3>
+            <p>Entregamos projetos de software em todo o Brasil e exterior.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-line">
+      <span>© 2026 - IOY Tecnologia Premium. Todos os direitos reservados.</span>
+      <span>Tecnologia Premium.</span>
+    </div>
+  </footer>
+</body>
+</html>
