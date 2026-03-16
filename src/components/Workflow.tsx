@@ -1,25 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, Code2, Rocket } from "lucide-react";
+import { Search, Code2, Rocket, HeartHandshake } from "lucide-react";
 
 export default function Workflow() {
   const steps = [
     {
-      icon: <Search className="w-8 h-8 text-primary" />,
-      title: "1. Analisamos seu negócio",
-      desc: "Mergulhamos na sua operação atual para identificar os maiores gargalos e oportunidades de otimização."
+      icon: <Search className="w-7 h-7 text-primary" />,
+      title: "1. Entendemos seu negócio",
+      desc: "Analisamos seus processos, desafios e objetivos para identificar onde a tecnologia gera mais impacto.",
     },
     {
-      icon: <Code2 className="w-8 h-8 text-secondary" />,
+      icon: <Code2 className="w-7 h-7 text-secondary" />,
       title: "2. Desenvolvemos a solução",
-      desc: "Nossos engenheiros criam o produto digital ideal com arquitetura moderna, focando na usabilidade e performance."
+      desc: "Nossa equipe cria o produto digital ideal com arquitetura moderna, design profissional e foco em usabilidade.",
     },
     {
-      icon: <Rocket className="w-8 h-8 text-white" />,
-      title: "3. Implementamos o resultado",
-      desc: "Colocamos o sistema no ar e acompanhamos a transição da equipe para garantir a adoção e o crescimento."
-    }
+      icon: <Rocket className="w-7 h-7 text-white" />,
+      title: "3. Lançamos e acompanhamos",
+      desc: "Colocamos no ar e acompanhamos de perto para garantir adoção, estabilidade e crescimento contínuo.",
+    },
+    {
+      icon: <HeartHandshake className="w-7 h-7 text-secondary" />,
+      title: "4. Suporte especializado",
+      desc: "Estamos sempre disponíveis para evoluir a plataforma, corrigir e adicionar funcionalidades conforme a empresa cresce.",
+    },
   ];
 
   return (
@@ -32,37 +37,40 @@ export default function Workflow() {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <div className="w-8 h-[1px] bg-primary" />
+            <span className="text-primary font-medium tracking-wide text-sm uppercase">Como trabalhamos</span>
+            <div className="w-8 h-[1px] bg-primary" />
+          </div>
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-            Transformação digital em <span className="text-gradient">3 passos.</span>
+            Transformação digital em{" "}
+            <span className="text-gradient">passos simples.</span>
           </h2>
           <p className="text-lg text-muted max-w-2xl mx-auto">
-            Sem processos complexos, sem perda de tempo. Da idealização ao lançamento com máxima eficiência técnica.
+            Da ideia ao produto funcionando — sem complicação, sem perda de tempo.
           </p>
         </motion.div>
 
-        <div className="relative grid md:grid-cols-3 gap-8 md:gap-12">
-          {/* Connector Line (Desktop) */}
-          <div className="hidden md:block absolute top-12 left-[15%] right-[15%] h-[1px] bg-gradient-to-r from-primary via-secondary to-primary opacity-30 pointer-events-none" />
-
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
-              className="relative z-10 flex flex-col items-center text-center"
+              transition={{ delay: index * 0.15, duration: 0.6 }}
+              className="relative glass rounded-3xl p-7 border border-white/5 hover:border-white/15 hover:bg-white/[0.06] transition-all duration-300 flex flex-col gap-5"
             >
-              <div className="w-24 h-24 rounded-full bg-[#0B0B0F] border border-white/10 flex items-center justify-center mb-8 relative group">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 w-16 h-16 rounded-full glass flex items-center justify-center">
+              <div className="flex items-center justify-between">
+                <div className="w-12 h-12 rounded-2xl glass border border-white/10 flex items-center justify-center">
                   {step.icon}
                 </div>
+                <span className="text-5xl font-black text-white/5">{index + 1}</span>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-4">{step.title}</h3>
-              <p className="text-muted leading-relaxed">
-                {step.desc}
-              </p>
+              <div>
+                <h3 className="text-base font-bold text-foreground mb-2">{step.title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{step.desc}</p>
+              </div>
             </motion.div>
           ))}
         </div>
