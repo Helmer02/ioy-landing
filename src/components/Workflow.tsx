@@ -1,80 +1,70 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
-import { Search, Code2, Rocket, HeartHandshake } from "lucide-react";
+import { Code2, HeartHandshake, Radar, Rocket } from "lucide-react";
+
+const steps = [
+  {
+    icon: Radar,
+    title: "Discovery estrategico",
+    desc: "Mapeamos operacao, metas e riscos para definir o escopo certo antes da construcao.",
+  },
+  {
+    icon: Code2,
+    title: "Produto e engenharia",
+    desc: "Projetamos UX e arquitetura tecnica para lancar rapido sem criar divida tecnica.",
+  },
+  {
+    icon: Rocket,
+    title: "Go-live controlado",
+    desc: "Publicacao com telemetria, checklist de qualidade e acompanhamento de adocao.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Evolucao continua",
+    desc: "Roadmap de melhorias com ciclos curtos, suporte especialista e foco em resultado.",
+  },
+];
 
 export default function Workflow() {
-  const steps = [
-    {
-      icon: <Search className="w-7 h-7 text-primary" />,
-      title: "1. Entendemos seu negócio",
-      desc: "Analisamos seus processos, desafios e objetivos para identificar onde a tecnologia gera mais impacto.",
-    },
-    {
-      icon: <Code2 className="w-7 h-7 text-secondary" />,
-      title: "2. Desenvolvemos a solução",
-      desc: "Nossa equipe cria o produto digital ideal com arquitetura moderna, design profissional e foco em usabilidade.",
-    },
-    {
-      icon: <Rocket className="w-7 h-7 text-white" />,
-      title: "3. Lançamos e acompanhamos",
-      desc: "Colocamos no ar e acompanhamos de perto para garantir adoção, estabilidade e crescimento contínuo.",
-    },
-    {
-      icon: <HeartHandshake className="w-7 h-7 text-secondary" />,
-      title: "4. Suporte especializado",
-      desc: "Estamos sempre disponíveis para evoluir a plataforma, corrigir e adicionar funcionalidades conforme a empresa cresce.",
-    },
-  ];
-
   return (
-    <section className="py-24 relative overflow-hidden" id="metodologia">
-      <div className="container mx-auto px-6 max-w-7xl">
+    <section id="metodologia" className="py-24">
+      <div className="shell">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-20"
+          className="mb-14 text-center"
         >
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-[1px] bg-primary" />
-            <span className="text-primary font-medium tracking-wide text-sm uppercase">Como trabalhamos</span>
-            <div className="w-8 h-[1px] bg-primary" />
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-            Transformação digital em{" "}
-            <span className="text-gradient">passos simples.</span>
-          </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
-            Da ideia ao produto funcionando — sem complicação, sem perda de tempo.
+          <span className="eyebrow mb-5">metodo IOY</span>
+          <h2 className="title-lg mb-5">Execucao em quatro etapas para reduzir risco e acelerar valor.</h2>
+          <p className="muted mx-auto max-w-2xl text-lg">
+            Processo claro, entregas incrementais e comunicacao proxima para transformar ideia em produto funcional.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
+            <motion.article
+              key={step.title}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="relative glass rounded-3xl p-7 border border-white/5 hover:border-white/15 hover:bg-white/[0.06] transition-all duration-300 flex flex-col gap-5"
+              transition={{ delay: index * 0.08, duration: 0.5 }}
+              className="panel p-6"
             >
-              <div className="flex items-center justify-between">
-                <div className="w-12 h-12 rounded-2xl glass border border-white/10 flex items-center justify-center">
-                  {step.icon}
-                </div>
-                <span className="text-5xl font-black text-white/5">{index + 1}</span>
+              <div className="mb-4 flex items-center justify-between">
+                <step.icon className="h-6 w-6 text-primary" />
+                <span className="font-mono text-3xl text-white/20">0{index + 1}</span>
               </div>
-              <div>
-                <h3 className="text-base font-bold text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted text-sm leading-relaxed">{step.desc}</p>
-              </div>
-            </motion.div>
+              <h3 className="mb-2 text-base font-semibold text-white">{step.title}</h3>
+              <p className="muted text-sm leading-relaxed">{step.desc}</p>
+            </motion.article>
           ))}
         </div>
       </div>
     </section>
   );
 }
+

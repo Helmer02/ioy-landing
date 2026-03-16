@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const headingFont = Space_Grotesk({
+  variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const monoFont = Space_Mono({
+  variable: "--font-mono",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -23,26 +24,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased select-none border-0`}
-      >
+    <html lang="pt-BR">
+      <body className={`${headingFont.variable} ${monoFont.variable} antialiased`}>
         {children}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
-              document.addEventListener('dragstart', function(e) { e.preventDefault(); });
-              document.addEventListener('copy', function(e) { e.preventDefault(); });
-              document.addEventListener('selectstart', function(e) { e.preventDefault(); });
-              document.addEventListener('keydown', function(e) {
-                if (e.ctrlKey && (e.key === 'c' || e.key === 'v' || e.key === 'x' || e.key === 'u' || e.key === 's' || e.key === 'p')) {
-                  e.preventDefault();
-                }
-              });
-            `,
-          }}
-        />
       </body>
     </html>
   );

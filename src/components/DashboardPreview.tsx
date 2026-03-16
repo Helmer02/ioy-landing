@@ -1,115 +1,112 @@
-"use client";
+﻿"use client";
 
+import Image from "next/image";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 export default function DashboardPreview() {
+  const [imageFailed, setImageFailed] = useState(false);
+
   return (
-    <section className="py-32 relative overflow-hidden" id="produtos">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+    <section id="produtos" className="relative overflow-hidden py-28">
+      <div className="pointer-events-none absolute -right-16 top-10 h-[340px] w-[340px] rounded-full bg-primary/10 blur-[105px]" />
+      <div className="pointer-events-none absolute -left-14 bottom-8 h-[320px] w-[320px] rounded-full bg-secondary/10 blur-[95px]" />
 
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-secondary/30 bg-secondary/5 mb-6 text-sm font-medium text-secondary">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-ping" />
-              Produto em produção
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6 text-foreground">
-              Conheça o{" "}
-              <span className="text-gradient">IOY Agenda</span>
-            </h2>
-            <p className="text-lg text-muted max-w-2xl mx-auto mb-8">
-              Nosso SaaS de agendamento inteligente para barbearias, salões, clínicas e profissionais de serviço. Um exemplo real do que a IOY constrói.
-            </p>
-            <a
-              href="https://agenda.ioy.com.br"
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-primary to-secondary glow-primary hover:scale-[1.02] transition-transform group"
-            >
-              Acessar o IOY Agenda
-              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
-            </a>
-          </motion.div>
-        </div>
-
+      <div className="shell">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="relative max-w-5xl mx-auto"
+          transition={{ duration: 0.52 }}
+          className="mx-auto mb-12 max-w-3xl text-center"
         >
-          <div className="rounded-2xl border border-white/10 glass-card overflow-hidden shadow-[0_0_80px_rgba(108,59,255,0.15)]">
-            <div className="bg-[#0B0B0F]/80 border-b border-white/10 p-3 flex items-center gap-4">
-              <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-white/20" />
-                <div className="w-3 h-3 rounded-full bg-white/20" />
-                <div className="w-3 h-3 rounded-full bg-white/20" />
-              </div>
-              <div className="flex-1 max-w-md mx-auto h-6 bg-white/5 rounded-md border border-white/5 flex items-center px-3">
-                <span className="text-[10px] text-muted font-mono">agenda.ioy.com.br/app</span>
-              </div>
+          <span className="eyebrow mb-5">case em producao</span>
+          <h2 className="title-lg mb-5">IOY Agenda: SaaS de agendamento com operacao inteligente.</h2>
+          <p className="muted mb-8 text-lg">
+            Exemplo real do nosso padrao de produto: UX clara, painel operacional e fluxo completo para servicos.
+          </p>
+          <a href="https://agenda.ioy.com.br" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            Acessar IOY Agenda
+            <ArrowRight size={16} />
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 26 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65 }}
+          className="panel scan-line mx-auto max-w-5xl p-2"
+        >
+          {!imageFailed ? (
+            <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-[hsl(var(--background-2))]">
+              <Image
+                src="/ioy-agenda-sistema.png"
+                alt="Preview do sistema IOY Agenda"
+                width={1600}
+                height={900}
+                className="h-auto w-full object-cover"
+                priority
+                onError={() => setImageFailed(true)}
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
             </div>
-
-            <div className="aspect-video bg-[#07080f] relative overflow-hidden p-6 flex gap-5">
-              {/* Sidebar */}
-              <div className="w-44 hidden md:flex flex-col gap-3 border-r border-white/5 pr-5 shrink-0">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-6 h-6 rounded-lg bg-primary/30" />
-                  <div className="w-20 h-3 bg-white/15 rounded" />
-                </div>
-                {[80,60,70,50,65].map((w, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded bg-white/10 shrink-0" />
-                    <div className="h-2.5 bg-white/8 rounded" style={{width:`${w}%`}} />
-                  </div>
-                ))}
+          ) : (
+            <div className="rounded-2xl border border-white/15 bg-[hsl(var(--background-2))] p-4 md:p-5">
+              <div className="mb-4 flex items-center gap-3 border-b border-white/10 pb-3">
+                <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+                <span className="ml-2 rounded-md border border-white/15 px-2 py-1 font-mono text-[10px] text-white/60">
+                  agenda.ioy.com.br/app
+                </span>
               </div>
 
-              {/* Main */}
-              <div className="flex-1 flex flex-col gap-4 min-w-0">
-                <div className="flex items-center justify-between">
-                  <div className="w-36 h-5 bg-white/15 rounded" />
-                  <div className="w-24 h-7 bg-primary/30 rounded-lg border border-primary/30" />
-                </div>
-                <div className="grid grid-cols-3 gap-3">
-                  {[
-                    { c: 'from-primary/25 border-primary/20' },
-                    { c: 'from-secondary/20 border-secondary/20' },
-                    { c: 'from-white/5 border-white/5' }
-                  ].map((s, i) => (
-                    <div key={i} className={`h-20 bg-gradient-to-br ${s.c} to-transparent border rounded-xl p-3 flex flex-col justify-between`}>
-                      <div className="w-12 h-2 bg-white/20 rounded" />
-                      <div className="w-8 h-4 bg-white/30 rounded" />
-                    </div>
-                  ))}
-                </div>
-                <div className="flex-1 bg-white/[0.03] border border-white/5 rounded-xl p-4 flex flex-col gap-2.5 overflow-hidden">
-                  <div className="flex gap-4 pb-2 border-b border-white/5">
-                    {['w-20','w-14','w-16','w-12','w-10'].map((w,i)=>(
-                      <div key={i} className={`h-2 ${w} bg-white/20 rounded`} />
+              <div className="grid gap-4 md:grid-cols-[220px_1fr]">
+                <aside className="hidden rounded-xl border border-white/10 bg-white/[0.03] p-4 md:block">
+                  <div className="mb-4 h-8 w-28 rounded bg-white/15" />
+                  <div className="space-y-2">
+                    {[70, 58, 64, 52, 60].map((w, i) => (
+                      <div key={i} className="h-2.5 rounded bg-white/10" style={{ width: `${w}%` }} />
                     ))}
                   </div>
-                  {[...Array(4)].map((_, i) => (
-                    <div key={i} className="flex gap-4 items-center">
-                      <div className="w-8 h-8 rounded-full bg-white/10 shrink-0" />
-                      {['w-20','w-14','w-16','w-12'].map((w,j)=>(
-                        <div key={j} className={`h-2 ${w} bg-white/8 rounded`} />
+                </aside>
+
+                <div className="space-y-4">
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    {["hsl(var(--primary) / 0.34)", "hsl(var(--sky) / 0.28)", "hsl(var(--foreground) / 0.1)"].map(
+                      (bg, i) => (
+                        <div key={i} className="rounded-xl border border-white/10 p-3" style={{ background: bg }}>
+                          <div className="mb-2 h-2.5 w-1/2 rounded bg-white/40" />
+                          <div className="h-4 w-1/3 rounded bg-white/50" />
+                        </div>
+                      )
+                    )}
+                  </div>
+
+                  <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                    <div className="mb-3 flex gap-3">
+                      {["w-16", "w-20", "w-12", "w-16"].map((width, i) => (
+                        <div key={i} className={`h-2 rounded bg-white/25 ${width}`} />
                       ))}
-                      <div className="ml-auto w-16 h-5 rounded-full bg-primary/20 border border-primary/20" />
                     </div>
-                  ))}
+
+                    <div className="space-y-2.5">
+                      {[1, 2, 3, 4].map((row) => (
+                        <div key={row} className="flex items-center gap-3">
+                          <div className="h-7 w-7 rounded-full bg-white/10" />
+                          <div className="h-2 w-24 rounded bg-white/15" />
+                          <div className="h-2 w-16 rounded bg-white/15" />
+                          <div className="ml-auto h-5 w-14 rounded-full bg-primary/35" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </motion.div>
       </div>
     </section>

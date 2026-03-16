@@ -1,105 +1,93 @@
-"use client";
+﻿"use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCheck, Sparkles } from "lucide-react";
+
+const benefits = [
+  "arquitetura moderna pronta para escalar",
+  "processo transparente do kickoff ao deploy",
+  "design orientado a conversao e usabilidade",
+  "squad tecnico com suporte continuo",
+  "seguranca, performance e estabilidade",
+  "foco em impacto de negocio, nao so entrega",
+];
 
 export default function Products() {
-  const benefits = [
-    "Tecnologia moderna e escalável",
-    "Design profissional e intuitivo",
-    "Plataformas seguras e estáveis",
-    "Suporte especializado dedicado",
-    "Entregas rápidas e eficientes",
-    "Foco em resultado real para o negócio",
-  ];
-
   return (
-    <section className="py-32 relative" id="beneficios">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/8 blur-[150px] rounded-full pointer-events-none" />
+    <section id="beneficios" className="relative py-28">
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[330px] w-[740px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px]" />
 
-      <div className="container mx-auto px-6 max-w-7xl relative z-10">
-        <div className="glass-card rounded-[40px] p-8 md:p-16 border border-white/8 overflow-hidden relative">
-
-          {/* Glow accent */}
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-secondary/10 blur-[100px] rounded-full pointer-events-none" />
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
-
+      <div className="shell relative z-10">
+        <div className="panel p-8 md:p-14">
+          <div className="grid items-center gap-10 lg:grid-cols-2">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.55 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-6 font-medium text-sm text-foreground">
-                <Sparkles size={14} className="text-secondary" />
-                Por que escolher a IOY
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6">
-                Tecnologia inteligente para{" "}
-                <span className="text-gradient">empresas modernas.</span>
-              </h2>
-
-              <p className="text-base sm:text-lg text-muted mb-8 max-w-lg">
-                A IOY une design de alto nível, arquitetura sólida e foco total em resultado. Criamos soluções que sua equipe vai amar usar.
+              <span className="eyebrow mb-6">
+                <Sparkles className="h-3.5 w-3.5" />
+                por que IOY
+              </span>
+              <h2 className="title-lg mb-5">Tecnologia com linguagem futurista, execucao profissional e resultado mensuravel.</h2>
+              <p className="muted mb-8 text-base leading-relaxed md:text-lg">
+                Unimos qualidade visual, arquitetura robusta e decisao orientada a dados para construir produtos que
+                sua operacao realmente adota.
               </p>
 
-              <ul className="space-y-3.5 mb-10">
-                {benefits.map((b, i) => (
-                  <li key={i} className="flex items-center gap-3 text-foreground/90 font-medium text-sm">
-                    <CheckCircle2 className="text-secondary w-5 h-5 flex-shrink-0" />
-                    {b}
+              <ul className="space-y-3">
+                {benefits.map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm font-medium text-white/90">
+                    <CheckCheck className="h-4.5 w-4.5 text-primary" />
+                    {item}
                   </li>
                 ))}
               </ul>
 
               <a
                 href="https://wa.me/5527988625801"
-                target="_blank" rel="noopener noreferrer"
-                className="px-8 py-4 w-full sm:w-auto rounded-xl font-semibold text-white bg-gradient-to-r from-primary to-secondary glow-primary hover:scale-[1.02] transition-transform inline-flex items-center justify-center gap-2 group"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary mt-9"
               >
-                Falar com um especialista
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
+                Falar com especialista
+                <ArrowRight size={16} />
               </a>
             </motion.div>
 
-            {/* Visual — vision card */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="flex flex-col gap-5"
+              transition={{ duration: 0.65 }}
+              className="space-y-4"
             >
-              {/* Vision card */}
-              <div className="relative p-[1px] rounded-3xl bg-gradient-to-br from-primary/50 via-secondary/30 to-primary/20">
-                <div className="bg-[#0d0e18] rounded-3xl p-8">
-                  <p className="text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-4">
-                    "Construindo o futuro da tecnologia acessível para empresas."
-                  </p>
-                  <p className="text-muted text-sm">— Visão IOY Tecnologia</p>
-                </div>
+              <div className="scan-line rounded-3xl border border-white/15 bg-gradient-to-br from-[hsl(var(--background-2))] to-[hsl(var(--popover))] p-7">
+                <p className="text-xs uppercase tracking-[0.16em] text-secondary">Manifesto</p>
+                <p className="mt-3 text-2xl font-bold leading-tight text-white md:text-3xl">
+                  &quot;Projetos digitais que elevam a operacao e fortalecem a marca.&quot;
+                </p>
               </div>
 
-              {/* Stats row */}
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3">
                 {[
-                  { val: "100%", label: "Foco em resultado" },
-                  { val: "Rápido", label: "Time to market" },
-                  { val: "Escala", label: "Arquitetura cloud" },
-                ].map((s, i) => (
-                  <div key={i} className="glass rounded-2xl p-4 text-center border border-white/5">
-                    <p className="text-xl font-bold text-foreground mb-1">{s.val}</p>
-                    <p className="text-xs text-muted leading-tight">{s.label}</p>
+                  { value: "99.9%", label: "uptime alvo" },
+                  { value: "Rapido", label: "time to market" },
+                  { value: "Nativo", label: "cloud first" },
+                ].map((metric) => (
+                  <div key={metric.label} className="metric text-center">
+                    <p className="text-lg font-bold text-white">{metric.value}</p>
+                    <p className="muted text-xs">{metric.label}</p>
                   </div>
                 ))}
               </div>
             </motion.div>
-
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+
