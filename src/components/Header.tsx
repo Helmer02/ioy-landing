@@ -18,28 +18,35 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-5"
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled 
+          ? "bg-[#090a12]/80 backdrop-blur-xl border-b border-white/5 py-4 shadow-[0_8px_32px_rgba(0,0,0,0.3)]" 
+          : "bg-transparent py-6"
       }`}
     >
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)] group-hover:scale-105 transition-transform bg-[#090a12]">
-            <img src="/logo.png" alt="IOY Logo" className="w-[120%] h-[120%] object-cover" />
+          <div className="w-11 h-11 rounded-2xl overflow-hidden flex items-center justify-center shadow-[0_0_25px_rgba(0,212,255,0.3)] group-hover:shadow-[0_0_35px_rgba(0,212,255,0.5)] group-hover:scale-105 transition-all duration-500 bg-[#090a12] border border-white/5">
+            <img src="/logo.png" alt="IOY Logo" className="w-[110%] h-[110%] object-cover" />
           </div>
-          <span className="font-bold text-xl tracking-tight text-foreground">
+          <span className="font-bold text-xl tracking-tight text-foreground group-hover:text-primary transition-colors">
             IOY Tecnologia
           </span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted">
-          <a href="#solucoes" className="hover:text-foreground transition-colors">Soluções</a>
-          <a href="#produtos" className="hover:text-foreground transition-colors">Produtos</a>
-          <a href="#portfolio" className="hover:text-foreground transition-colors">Portfólio</a>
-          <a href="#agencia" className="hover:text-foreground transition-colors">Nossa Agência</a>
-          <a href="#contato" className="hover:text-foreground transition-colors">Contato</a>
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+          {["Soluções", "Produtos", "Portfólio", "Nossa Agência", "Contato"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+              className="text-muted hover:text-foreground transition-colors relative group"
+            >
+              {item}
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full" />
+            </a>
+          ))}
         </nav>
 
         {/* CTA */}
@@ -47,41 +54,44 @@ export default function Header() {
           <a
             href="https://wa.me/5527988625801"
             target="_blank" rel="noopener noreferrer"
-            className="px-6 py-2.5 rounded-full text-sm font-semibold text-white bg-gradient-to-r from-primary to-secondary glow-primary hover:glow-secondary transition-all hover:scale-105 inline-flex items-center gap-2"
+            className="px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary to-secondary glow-primary hover:scale-[1.02] transition-transform inline-flex items-center gap-2"
           >
-            <img src="/logo.png" alt="Icon" className="w-5 h-5 rounded-full bg-black/20" />
             Fale com um Especialista
           </a>
         </div>
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl bg-white/5 border border-white/10 text-foreground transition-colors hover:bg-white/10"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Nav */}
       {mobileMenuOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute top-full left-0 w-full bg-[#0B0B0F]/95 backdrop-blur-xl border-b border-white/10 p-6 flex flex-col gap-4 shadow-2xl md:hidden"
+          className="absolute top-full left-4 right-4 mt-2 bg-[#0d0e18]/95 backdrop-blur-2xl border border-white/10 p-8 rounded-3xl flex flex-col gap-6 shadow-2xl md:hidden"
         >
-          <a href="#solucoes" onClick={() => setMobileMenuOpen(false)} className="text-muted hover:text-foreground text-lg py-2">Soluções</a>
-          <a href="#produtos" onClick={() => setMobileMenuOpen(false)} className="text-muted hover:text-foreground text-lg py-2">Produtos</a>
-          <a href="#portfolio" onClick={() => setMobileMenuOpen(false)} className="text-muted hover:text-foreground text-lg py-2">Portfólio</a>
-          <a href="#agencia" onClick={() => setMobileMenuOpen(false)} className="text-muted hover:text-foreground text-lg py-2">Nossa Agência</a>
-          <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="text-muted hover:text-foreground text-lg py-2">Contato</a>
+          {["Soluções", "Produtos", "Portfólio", "Nossa Agência", "Contato"].map((item) => (
+            <a
+              key={item}
+              href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-muted hover:text-foreground text-xl font-medium transition-colors"
+            >
+              {item}
+            </a>
+          ))}
           <a
             href="https://wa.me/5527988625801"
             target="_blank" rel="noopener noreferrer"
-            className="mt-4 px-6 py-3 rounded-xl text-center font-semibold text-white bg-gradient-to-r from-primary to-secondary glow-primary flex items-center justify-center gap-2"
+            className="mt-4 px-6 py-4 rounded-2xl text-center font-bold text-white bg-gradient-to-r from-primary to-secondary glow-primary flex items-center justify-center"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <img src="/logo.png" alt="Icon" className="w-5 h-5 rounded-full bg-black/20" />
             Fale com um Especialista
           </a>
         </motion.div>

@@ -1,72 +1,95 @@
+import { Instagram, Linkedin, Globe, Mail, MessageCircle } from "lucide-react";
+
 export default function Footer() {
   return (
-    <footer className="bg-[#050508] border-t border-white/5 pt-16 pb-8">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-          <div className="col-span-1 md:col-span-1">
-            <a href="#" className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-lg overflow-hidden flex items-center justify-center bg-[#090a12]">
-                <img src="/logo.png" alt="IOY Logo" className="w-[120%] h-[120%] object-cover" />
+    <footer className="bg-[#07080f] border-t border-white/5 pt-20 pb-10 overflow-hidden relative">
+      {/* Decorative glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[300px] bg-primary/10 blur-[120px] rounded-full pointer-events-none opacity-50" />
+
+      <div className="container mx-auto px-6 max-w-7xl relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
+          <div className="flex flex-col gap-6">
+            <a href="#" className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl overflow-hidden flex items-center justify-center bg-[#090a12] border border-white/10">
+                <img src="/logo.png" alt="IOY Logo" className="w-[110%] h-[110%] object-cover" />
               </div>
-              <span className="font-bold text-lg tracking-tight text-foreground">
+              <span className="font-bold text-xl tracking-tight text-foreground">
                 IOY Tecnologia
               </span>
             </a>
-            <p className="text-muted text-sm leading-relaxed">
-              Software House especializada em sistemas de alta performance, UX imersivo e SaaS escalável.
+            <p className="text-muted text-sm leading-relaxed max-w-xs">
+              Especialistas em transformar ideias complexas em experiências digitais simples, escaláveis e de alto impacto.
             </p>
+            <div className="flex items-center gap-4">
+              {[
+                { icon: <Instagram size={18} />, href: "https://www.instagram.com/ioy.tech/" },
+                { icon: <Linkedin size={18} />, href: "#" },
+                { icon: <Globe size={18} />, href: "https://ioy.com.br" },
+              ].map((social, i) => (
+                <a
+                  key={i}
+                  href={social.href}
+                  target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-muted hover:text-foreground hover:bg-white/10 transition-all"
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Empresa</h4>
-            <ul className="space-y-3 text-sm text-muted">
-              <li><a href="#agencia" className="hover:text-primary transition-colors">Sobre Nós</a></li>
-              <li><a href="#solucoes" className="hover:text-primary transition-colors">Soluções</a></li>
-              <li><a href="#produtos" className="hover:text-primary transition-colors">Produtos</a></li>
-              <li><a href="#portfolio" className="hover:text-primary transition-colors">Portfólio</a></li>
+            <h4 className="font-bold text-foreground mb-6 uppercase tracking-widest text-xs">Empresa</h4>
+            <ul className="flex flex-col gap-4 text-sm font-medium text-muted">
+              {["Sobre Nós", "Soluções", "Produtos", "Portfólio"].map((link) => (
+                <li key={link}>
+                  <a href={`#${link.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-primary transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Contato</h4>
-            <ul className="space-y-3 text-sm text-muted">
-              <li>Formulário de Contato</li>
-              <li>
-                <a href="mailto:contato@ioy.com.br" className="hover:text-primary transition-colors">
-                  contato@ioy.com.br
-                </a>
+            <h4 className="font-bold text-foreground mb-6 uppercase tracking-widest text-xs">Contato</h4>
+            <ul className="flex flex-col gap-4 text-sm font-medium text-muted">
+              <li className="flex items-center gap-3 group cursor-pointer hover:text-primary transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                  <Mail size={14} />
+                </div>
+                contato@ioy.com.br
               </li>
-              <li>
-                <a href="https://wa.me/5527988625801" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  WhatsApp: +55 27 98862-5801
-                </a>
+              <li className="flex items-center gap-3 group cursor-pointer hover:text-secondary transition-colors">
+                <div className="w-8 h-8 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
+                  <MessageCircle size={14} />
+                </div>
+                +55 27 98862-5801
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Redes Sociais & Produtos</h4>
-            <ul className="space-y-3 text-sm text-muted">
+            <h4 className="font-bold text-foreground mb-6 uppercase tracking-widest text-xs">Soluções Premium</h4>
+            <ul className="flex flex-col gap-4 text-sm font-medium text-muted">
               <li>
-                <a href="https://www.instagram.com/ioy.tech/" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors">
-                  Instagram @ioy.tech
-                </a>
-              </li>
-              <li>
-                <a href="https://agenda.ioy.com.br" target="_blank" rel="noopener noreferrer" className="hover:text-secondary transition-colors font-medium">
+                <a href="https://agenda.ioy.com.br" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-secondary hover:brightness-125 transition-all">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
                   SaaS de Agendamento
                 </a>
               </li>
-              <li><a href="#" className="hover:text-secondary transition-colors">LinkedIn</a></li>
+              <li>Plataformas Imobiliárias</li>
+              <li>Sistemas Hospitalares</li>
+              <li>E-commerce B2B</li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted">
-          <p>© 2026 IOY Tecnologia Premium. Todos os direitos reservados.</p>
-          <div className="flex gap-4">
-            <a href="#" className="hover:text-white transition-colors">Termos</a>
-            <a href="#" className="hover:text-white transition-colors">Privacidade</a>
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 text-xs font-medium text-muted">
+          <p>© 2026 IOY Tecnologia Premium. Built for the future.</p>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-foreground transition-colors">Termos de uso</a>
+            <a href="#" className="hover:text-foreground transition-colors">Privacidade</a>
           </div>
         </div>
       </div>
