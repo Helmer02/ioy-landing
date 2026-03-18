@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# IOY Landing Page
 
-## Getting Started
+Landing page institucional desenvolvida para apresentar a IOY, empresa focada em soluções digitais como sistemas SaaS, automações e ferramentas para pequenos negócios.
 
-First, run the development server:
+## 🚀 Sobre o projeto
+A IOY Landing foi criada com o objetivo de comunicar de forma clara e profissional os produtos e soluções oferecidos pela empresa, com foco em conversão, experiência do usuário e apresentação comercial.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Objetivo
+Criar uma página moderna, responsiva e otimizada para apresentar a marca, seus serviços e captar novos clientes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Funcionalidades
+- Apresentação da empresa e soluções
+- Estrutura focada em conversão (CTA)
+- Layout responsivo
+- Organização visual moderna
+- Base preparada para expansão
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠 Tecnologias utilizadas
+- Next.js
+- TypeScript
+- Tailwind CSS
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧠 Aprendizados aplicados
+- Estruturação de landing page profissional
+- Organização de layout e componentes
+- Melhoria de experiência do usuário
+- Construção de interface com foco comercial
+- Padronização visual de produto digital
 
-## Learn More
+## 📌 Status do projeto
+Em desenvolvimento contínuo
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔗 Acesso
+https://ioy.com.br
