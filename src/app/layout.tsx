@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 
-const headingFont = Space_Grotesk({
+const headingFont = Outfit({
   variable: "--font-heading",
   subsets: ["latin"],
 });
 
-const monoFont = Space_Mono({
-  variable: "--font-mono",
-  weight: ["400", "700"],
+const bodyFont = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
 });
 
@@ -25,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${headingFont.variable} ${monoFont.variable} antialiased`}>
+      <body className={`${headingFont.variable} ${bodyFont.variable} font-body antialiased`}>
         {children}
       </body>
     </html>
