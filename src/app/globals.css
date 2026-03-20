@@ -55,9 +55,9 @@ body {
 }
 
 body {
-  background: radial-gradient(circle at 10% 0%, hsl(var(--live-violet) / 0.3), transparent 42%),
-    radial-gradient(circle at 88% 8%, hsl(var(--live-cyan) / 0.13), transparent 34%),
-    radial-gradient(circle at 50% 120%, hsl(var(--primary) / 0.24), transparent 45%),
+  background: radial-gradient(circle at 12% 2%, hsl(var(--live-violet) / 0.2), transparent 30%),
+    radial-gradient(circle at 88% 8%, hsl(var(--live-cyan) / 0.1), transparent 28%),
+    radial-gradient(circle at 50% 115%, hsl(var(--primary) / 0.16), transparent 40%),
     linear-gradient(
       165deg,
       hsl(var(--background)) 0%,
@@ -75,9 +75,8 @@ body::before {
   inset: -20%;
   pointer-events: none;
   z-index: -1;
-  background:
-    radial-gradient(circle at 20% 30%, hsl(var(--live-violet) / 0.12), transparent 26%),
-    radial-gradient(circle at 80% 70%, hsl(var(--live-cyan) / 0.1), transparent 28%);
+  background: radial-gradient(circle at 18% 24%, hsl(var(--live-violet) / 0.1), transparent 22%),
+    radial-gradient(circle at 82% 70%, hsl(var(--live-cyan) / 0.08), transparent 24%);
   animation: ambientShift 14s ease-in-out infinite alternate;
 }
 

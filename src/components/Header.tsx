@@ -32,8 +32,8 @@ export default function Header() {
     >
       <div className="shell flex items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-white/25 bg-[hsl(var(--popover))]">
-            <Image src="/logo.png" alt="IOY" width={44} height={44} className="h-[110%] w-[110%] object-cover" />
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[hsl(var(--background))]">
+            <Image src="/logo.png" alt="IOY" width={44} height={44} className="h-10 w-10 object-contain" />
           </div>
           <div>
             <p className="text-sm font-semibold tracking-[0.16em] text-white/70">IOY</p>
@@ -95,4 +95,7 @@ export default function Header() {
     </header>
   );
 }
+
+
+
 

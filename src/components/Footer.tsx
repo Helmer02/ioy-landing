@@ -17,8 +17,8 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <a href="#" className="mb-5 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-white/20 bg-[hsl(var(--popover))]">
-                <Image src="/logo.png" alt="IOY" width={44} height={44} className="h-[110%] w-[110%] object-cover" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-[hsl(var(--background))]">
+                <Image src="/logo.png" alt="IOY" width={44} height={44} className="h-10 w-10 object-contain" />
               </div>
               <p className="text-base font-semibold text-white">IOY Tecnologia</p>
             </a>
@@ -97,4 +97,7 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+
 

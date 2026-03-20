@@ -15,8 +15,8 @@ export default function Home() {
     <main className="relative min-h-screen overflow-x-hidden">
       <CursorGlow />
       <div className="pointer-events-none fixed inset-0 grid-overlay" />
-      <div className="pointer-events-none fixed -left-24 top-28 h-72 w-72 rounded-full bg-primary/20 blur-[110px]" />
-      <div className="pointer-events-none fixed -right-24 bottom-20 h-72 w-72 rounded-full bg-secondary/20 blur-[110px]" />
+      <div className="pointer-events-none fixed -left-32 top-8 h-[28rem] w-[28rem] rounded-full bg-primary/14 blur-[140px]" />
+      <div className="pointer-events-none fixed -right-36 top-24 h-[24rem] w-[24rem] rounded-full bg-secondary/10 blur-[150px]" />
       <Header />
       <Hero />
       <Problems />

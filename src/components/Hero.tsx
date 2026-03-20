@@ -6,8 +6,8 @@ import { ArrowRight, Cpu, Orbit, Radar } from "lucide-react";
 export default function Hero() {
   return (
     <section className="relative overflow-hidden pb-24 pt-40 md:pb-32 md:pt-48">
-      <div className="pointer-events-none absolute -top-20 left-1/2 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-primary/15 blur-[120px]" />
-      <div className="pointer-events-none absolute right-0 top-16 h-[280px] w-[280px] rounded-full bg-secondary/15 blur-[90px]" />
+      <div className="pointer-events-none absolute -top-28 left-[22%] h-[360px] w-[360px] rounded-full bg-primary/22 blur-[130px]" />
+      <div className="pointer-events-none absolute -right-10 top-20 h-[300px] w-[300px] rounded-full bg-secondary/12 blur-[120px]" />
 
       <div className="shell relative z-10 grid items-center gap-14 lg:grid-cols-2">
         <motion.div

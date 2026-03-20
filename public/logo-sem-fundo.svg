@@ -1,0 +1,39 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ioyGrad" x1="32" y1="32" x2="224" y2="224" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2EF2E0"/>
+      <stop offset="0.52" stop-color="#3C8BFF"/>
+      <stop offset="1" stop-color="#A334FF"/>
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M40 56L102 88C111 93 116 103 116 113V123"
+    stroke="url(#ioyGrad)"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M216 56L154 88C145 93 140 103 140 113V123"
+    stroke="url(#ioyGrad)"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <circle cx="128" cy="106" r="9" fill="url(#ioyGrad)" />
+  <path
+    d="M128 128V188C128 203 116 215 101 215C86 215 74 203 74 188V160"
+    stroke="url(#ioyGrad)"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M128 128V188C128 203 140 215 155 215C170 215 182 203 182 188V160"
+    stroke="url(#ioyGrad)"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
