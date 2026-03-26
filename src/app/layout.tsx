@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 
@@ -13,8 +13,14 @@ const bodyFont = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "IOY Tecnologia — Soluções Digitais Inteligentes",
-  description: "A IOY desenvolve plataformas digitais, sistemas SaaS e automações de alta performance para empresas que buscam inovação e escala.",
+  title: "IOY Tecnologia - Solucoes Digitais Inteligentes",
+  description:
+    "A IOY desenvolve plataformas digitais, sistemas SaaS e automacoes de alta performance para empresas que buscam inovacao e escala.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({

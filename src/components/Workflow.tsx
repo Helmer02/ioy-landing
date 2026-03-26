@@ -38,17 +38,17 @@ export default function Workflow() {
           className="mb-20 text-center"
         >
           <span className="eyebrow mb-6">Método IOY</span>
-          <h2 className="title-hero text-4xl md:text-5xl mb-6">
+          <h2 className="title-hero text-4xl md:text-5xl mb-6 text-slate-900">
             Execução <span className="text-primary italic">Sincronizada</span> em 4 Etapas.
           </h2>
-          <p className="text-white/40 text-lg max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-lg text-slate-600">
             Processo transparente e entregas incrementais para acelerar o tempo de valor.
           </p>
         </motion.div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 relative">
           {/* Connecting line for desktop */}
-          <div className="hidden lg:block absolute top-[60px] left-20 right-20 h-px bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0" />
+          <div className="hidden lg:block absolute top-[60px] left-20 right-20 h-px bg-gradient-to-r from-primary/0 via-primary/30 to-primary/0" />
 
           {steps.map((step, index) => (
             <motion.article
@@ -57,18 +57,18 @@ export default function Workflow() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.6 }}
-              className="panel p-8 border border-white/5 relative bg-white/[0.01] hover:bg-white/[0.03] transition-all group"
+              className="panel relative border border-[var(--line)] bg-white p-8 transition-all group hover:bg-slate-50"
             >
               <div className="mb-8 flex items-center justify-between relative z-10">
-                <div className="h-14 w-14 rounded-2xl bg-black border border-white/10 flex items-center justify-center group-hover:border-primary/40 transition-colors">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[var(--line)] bg-primary/[0.05] transition-colors group-hover:border-primary/40">
                   <step.icon className="h-6 w-6 text-primary" />
                 </div>
-                <span className="text-5xl font-black text-white/[0.03] group-hover:text-primary/[0.05] transition-colors font-sans">
+                <span className="font-sans text-5xl font-black text-primary/20 transition-colors group-hover:text-primary/30">
                   0{index + 1}
                 </span>
               </div>
-              <h3 className="mb-3 text-lg font-bold text-white group-hover:text-primary transition-colors">{step.title}</h3>
-              <p className="text-white/40 text-[13px] leading-relaxed group-hover:text-white/60 transition-colors">
+              <h3 className="mb-3 text-lg font-bold text-slate-900 transition-colors group-hover:text-primary">{step.title}</h3>
+              <p className="text-[13px] leading-relaxed text-slate-600 transition-colors group-hover:text-slate-800">
                 {step.desc}
               </p>
             </motion.article>
@@ -78,3 +78,4 @@ export default function Workflow() {
     </section>
   );
 }
+

@@ -33,10 +33,10 @@ export default function Testimonials() {
           className="mb-20 text-center"
         >
           <span className="eyebrow mb-6">Prova Social</span>
-          <h2 className="title-hero text-4xl md:text-5xl mb-6">
+          <h2 className="title-hero text-4xl md:text-5xl mb-6 text-slate-900">
             Confiança <span className="text-primary italic">Validada</span> por Resultados.
           </h2>
-          <p className="text-white/40 text-lg max-w-2xl mx-auto">
+          <p className="mx-auto max-w-2xl text-lg text-slate-600">
             Feedback de empresas que elevaram sua maturidade digital com a IOY.
           </p>
         </motion.div>
@@ -49,24 +49,24 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="panel p-8 border border-white/5 relative group hover:border-primary/20 transition-all duration-500"
+              className="panel relative group border border-[var(--line)] p-8 transition-all duration-500 hover:border-primary/20"
             >
-              <Quote className="text-primary/20 absolute top-6 right-6 h-10 w-10 group-hover:text-primary/40 transition-colors" />
+              <Quote className="absolute right-6 top-6 h-10 w-10 text-primary/30 transition-colors group-hover:text-primary/50" />
               <div className="mb-6 flex gap-1">
                 {[1, 2, 3, 4, 5].map((s) => (
                   <Sparkles key={s} size={10} className="text-primary" />
                 ))}
               </div>
-              <p className="text-white/60 text-sm leading-relaxed mb-8 min-h-[80px]">
+              <p className="mb-8 min-h-[80px] text-sm leading-relaxed text-slate-700">
                 &quot;{review.text}&quot;
               </p>
-              <div className="flex items-center gap-3 border-t border-white/5 pt-6">
-                <div className="h-10 w-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-[10px] font-bold text-primary">
+              <div className="flex items-center gap-3 border-t border-[var(--line)] pt-6">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full border border-primary/20 bg-primary/10 text-[10px] font-bold text-primary">
                   {review.author.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-white leading-none mb-1">{review.author}</p>
-                  <p className="text-[10px] uppercase tracking-widest text-white/30 font-black">{review.role}</p>
+                  <p className="mb-1 text-sm font-bold leading-none text-slate-900">{review.author}</p>
+                  <p className="text-[10px] font-black uppercase tracking-widest text-slate-500">{review.role}</p>
                 </div>
               </div>
             </motion.article>
@@ -79,16 +79,16 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           id="agencia"
-          className="panel max-w-5xl mx-auto p-10 md:p-20 text-center border border-white/10 bg-white/[0.01] backdrop-blur-3xl relative overflow-hidden"
+          className="panel relative mx-auto max-w-5xl overflow-hidden border border-[var(--line)] bg-white/90 p-10 text-center backdrop-blur-3xl md:p-20"
         >
           {/* Animated light effect */}
-          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
           
           <span className="eyebrow mb-8">Sobre a IOY</span>
-          <h2 className="title-hero text-3xl md:text-4xl max-w-3xl mx-auto mb-8">
+          <h2 className="title-hero mx-auto mb-8 max-w-3xl text-3xl text-slate-900 md:text-4xl">
             Uma Startup de Engenharia Focada em <span className="text-primary font-serif italic">Impacto Real</span>.
           </h2>
-          <p className="text-white/50 text-lg leading-relaxed max-w-3xl mx-auto">
+          <p className="mx-auto max-w-3xl text-lg leading-relaxed text-slate-600">
             Não somos apenas desenvolvedores; somos parceiros estratégicos. Conectamos design premium, 
             arquitetura escalável e segurança de dados para transformar desafios operacionais em 
             vantagem competitiva sustentável.
@@ -98,3 +98,4 @@ export default function Testimonials() {
     </section>
   );
 }
+

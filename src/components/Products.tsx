@@ -16,13 +16,13 @@ export default function Products() {
   return (
     <section id="beneficios" className="relative py-32 overflow-hidden">
       {/* Central Glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[130px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/14 blur-[130px]" />
 
       <div className="shell relative z-10">
-        <div className="panel border border-white/5 bg-white/[0.02] p-8 md:p-20 backdrop-blur-3xl overflow-hidden relative">
+        <div className="panel relative overflow-hidden border border-[var(--line)] bg-white/90 p-8 backdrop-blur-3xl md:p-20">
           {/* Subtle line decoration */}
-          <div className="absolute top-0 right-0 w-1/2 h-px bg-gradient-to-l from-primary/30 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-px bg-gradient-to-r from-primary/30 to-transparent" />
+          <div className="absolute top-0 right-0 h-px w-1/2 bg-gradient-to-l from-primary/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 h-px w-1/2 bg-gradient-to-r from-primary/40 to-transparent" />
 
           <div className="grid items-center gap-16 lg:grid-cols-2">
             <motion.div
@@ -35,18 +35,18 @@ export default function Products() {
                 <Sparkles className="h-3.5 w-3.5" />
                 Diferencial IOY
               </div>
-              <h2 className="title-hero text-4xl mb-8">
+              <h2 className="title-hero text-4xl mb-8 text-slate-900">
                 Tecnologia com DNA <span className="text-primary italic">Futurista</span> e Entrega Profissional.
               </h2>
-              <p className="text-white/50 mb-10 text-lg leading-relaxed">
+              <p className="mb-10 text-lg leading-relaxed text-slate-600">
                 Unimos excelência visual com arquitetura robusta para construir produtos que
                 impulsionam sua operação para o próximo nível.
               </p>
 
               <ul className="grid gap-4 sm:grid-cols-2">
                 {benefits.map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-[13px] font-medium text-white/70 group">
-                    <div className="h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 group-hover:bg-primary/20 transition-colors">
+                  <li key={item} className="flex items-center gap-3 text-[13px] font-medium text-slate-700 group">
+                    <div className="flex h-5 w-5 items-center justify-center rounded-full border border-primary/20 bg-primary/10 transition-colors group-hover:bg-primary/20">
                       <CheckCheck className="h-3 w-3 text-primary" />
                     </div>
                     {item}
@@ -75,9 +75,9 @@ export default function Products() {
               className="space-y-6"
             >
               {/* Manifesto Card */}
-              <div className="panel p-10 border border-white/10 bg-black/40 group hover:bg-black/60 transition-all duration-500">
-                <p className="text-[10px] uppercase tracking-[0.3em] font-black text-primary/50 mb-6">Manifesto</p>
-                <p className="text-2xl md:text-3xl font-bold leading-[1.2] text-white">
+              <div className="panel group border border-[var(--line)] bg-white p-10 transition-all duration-500 hover:bg-slate-50">
+                <p className="text-[10px] uppercase tracking-[0.3em] mb-6 font-black text-primary/60">Manifesto</p>
+                <p className="text-2xl font-bold leading-[1.2] text-slate-900 md:text-3xl">
                   &quot;Projetos digitais que <span className="text-primary">elevam</span> a operação e 
                   fortalecem a <span className="italic font-serif opacity-70">marca</span>.&quot;
                 </p>
@@ -90,9 +90,9 @@ export default function Products() {
                   { value: "Agile", label: "Método" },
                   { value: "Cloud", label: "Arquitetura" },
                 ].map((metric) => (
-                  <div key={metric.label} className="panel p-6 text-center border border-white/5 group hover:border-primary/20 transition-all">
-                    <p className="text-xl font-bold text-white mb-1 group-hover:text-primary transition-colors">{metric.value}</p>
-                    <p className="text-[9px] uppercase tracking-widest text-white/30 font-bold">{metric.label}</p>
+                  <div key={metric.label} className="panel border border-[var(--line)] p-6 text-center transition-all group hover:border-primary/20">
+                    <p className="mb-1 text-xl font-bold text-slate-900 transition-colors group-hover:text-primary">{metric.value}</p>
+                    <p className="text-[9px] font-bold uppercase tracking-widest text-slate-500">{metric.label}</p>
                   </div>
                 ))}
               </div>
@@ -103,3 +103,4 @@ export default function Products() {
     </section>
   );
 }
+

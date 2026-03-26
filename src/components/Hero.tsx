@@ -7,8 +7,8 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden pb-24 pt-44 md:pb-32 md:pt-56">
       {/* Background Glows - Rentier Style */}
-      <div className="pointer-events-none absolute -top-40 left-[15%] h-[500px] w-[500px] rounded-full bg-primary/15 blur-[120px]" />
-      <div className="pointer-events-none absolute top-1/4 -right-20 h-[400px] w-[400px] rounded-full bg-primary/10 blur-[100px]" />
+      <div className="pointer-events-none absolute -top-40 left-[15%] h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]" />
+      <div className="pointer-events-none absolute top-1/4 -right-20 h-[400px] w-[400px] rounded-full bg-primary/15 blur-[105px]" />
 
       <div className="shell relative z-10 grid items-center gap-20 lg:grid-cols-2">
         <motion.div
@@ -22,11 +22,11 @@ export default function Hero() {
             Liderando a Próxima Geração de SaaS
           </div>
 
-          <h1 className="title-hero mb-8 text-white">
-            Transformamos <span className="text-primary">Visão</span> em Produtos de <span className="text-white/60 italic font-serif">Alta Performance</span>.
+          <h1 className="title-hero mb-8 text-slate-900">
+            Transformamos <span className="text-primary">Visão</span> em Produtos de <span className="text-slate-500 italic font-serif">Alta Performance</span>.
           </h1>
 
-          <p className="text-white/50 max-w-xl text-lg leading-relaxed mb-12">
+          <p className="max-w-xl text-lg leading-relaxed mb-12 text-slate-600">
             A IOY Tecnologia projeta e constrói ecossistemas digitais que escalam. 
             Do design minimalista à engenharia de dados robusta, entregamos o futuro hoje.
           </p>
@@ -46,17 +46,17 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="mt-16 grid grid-cols-3 gap-8 border-t border-white/5 pt-10">
+          <div className="mt-16 grid grid-cols-3 gap-8 border-t border-[var(--line)] pt-10">
             {[
               { label: "Performance", value: "99.9%" },
               { label: "Escalabilidade", value: "Infinity" },
               { label: "Retorno", value: "10x+" },
             ].map((item) => (
               <div key={item.label} className="group">
-                <p className="text-2xl font-bold text-white mb-1 transition-colors group-hover:text-primary">
+                <p className="mb-1 text-2xl font-bold text-slate-900 transition-colors group-hover:text-primary">
                   {item.value}
                 </p>
-                <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/30">
+                <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">
                   {item.label}
                 </p>
               </div>
@@ -71,13 +71,13 @@ export default function Hero() {
           className="relative perspective-1000"
         >
           {/* Main Card - Rentier Control Panel */}
-          <div className="panel border border-white/10 bg-white/5 p-3 backdrop-blur-3xl shadow-2xl shadow-primary/10">
-            <div className="rounded-[20px] bg-black/40 border border-white/5 p-6">
+          <div className="panel border border-[var(--line)] bg-white/85 p-3 backdrop-blur-3xl shadow-2xl shadow-primary/10">
+            <div className="rounded-[20px] border border-[var(--line)] bg-[linear-gradient(180deg,#ffffff_0%,#f4f2ff_100%)] p-6">
               <div className="mb-8 flex items-center justify-between">
                 <div className="flex gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-slate-300" />
                 </div>
                 <div className="px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-[10px] font-bold text-primary uppercase tracking-wider">
                   Live System v2.0
@@ -92,23 +92,23 @@ export default function Hero() {
                 ].map((card) => (
                   <div
                     key={card.label}
-                    className="rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition-all hover:bg-white/[0.05]"
+                    className="rounded-2xl border border-[var(--line)] bg-white p-4 transition-all hover:bg-slate-50"
                   >
                     <card.icon className="mb-4 h-5 w-5 text-primary" />
-                    <p className="text-xs font-bold text-white mb-1">{card.label}</p>
+                    <p className="text-xs font-bold text-slate-900 mb-1">{card.label}</p>
                     <div className="flex items-center gap-1.5">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
-                      <span className="text-[9px] uppercase tracking-tighter text-white/40">{card.val}</span>
+                      <span className="text-[9px] uppercase tracking-tighter text-slate-500">{card.val}</span>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* Chart Placeholder */}
-              <div className="rounded-2xl border border-white/5 bg-primary/5 p-5">
+              <div className="rounded-2xl border border-primary/10 bg-primary/[0.06] p-5">
                 <div className="flex items-center justify-between mb-4">
                   <p className="text-[10px] uppercase tracking-widest text-primary font-bold">Volume de Dados</p>
-                  <p className="text-xs font-bold text-white">+24.8%</p>
+                  <p className="text-xs font-bold text-slate-900">+24.8%</p>
                 </div>
                 <div className="flex h-32 items-end gap-1.5">
                   {[40, 55, 45, 70, 60, 85, 95, 80, 100, 90, 85, 95].map((h, i) => (
@@ -136,14 +136,14 @@ export default function Hero() {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="absolute -bottom-10 -left-10 hidden xl:block"
           >
-            <div className="panel border border-white/10 bg-black/60 p-5 backdrop-blur-2xl shadow-xl">
+            <div className="panel border border-[var(--line)] bg-white/90 p-5 backdrop-blur-2xl shadow-xl">
               <div className="flex items-center gap-4">
                 <div className="h-10 w-10 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
                   <Sparkles size={18} className="text-white" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-white">IA Otimizada</p>
-                  <p className="text-[10px] text-white/40 italic">Processando agora...</p>
+                  <p className="text-sm font-bold text-slate-900">IA Otimizada</p>
+                  <p className="text-[10px] text-slate-500 italic">Processando agora...</p>
                 </div>
               </div>
             </div>
@@ -153,3 +153,4 @@ export default function Hero() {
     </section>
   );
 }
+

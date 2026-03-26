@@ -5,9 +5,9 @@ import { ArrowRight, Zap } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section id="contato" className="relative py-24 overflow-hidden">
+    <section id="contato" className="relative overflow-hidden py-24">
       {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-primary/5 pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0 bg-primary/[0.08]" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
       <div className="shell">
@@ -16,7 +16,7 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="panel max-w-5xl mx-auto p-12 md:p-24 text-center border border-white/10 bg-black/40 backdrop-blur-3xl relative"
+          className="panel relative mx-auto max-w-5xl border border-[var(--line)] bg-white/92 p-12 text-center backdrop-blur-3xl md:p-24"
         >
           {/* Decorative icons */}
           <div className="absolute top-10 left-10 text-primary/10 animate-pulse">
@@ -27,10 +27,10 @@ export default function CTA() {
           </div>
 
           <span className="eyebrow mb-8">Vamos Construir Juntos</span>
-          <h2 className="title-hero text-4xl md:text-6xl mb-8">
+          <h2 className="title-hero mb-8 text-4xl text-slate-900 md:text-6xl">
             Leve sua Empresa para a <span className="text-primary italic">Próxima Dimensão</span>.
           </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto mb-12">
+          <p className="mx-auto mb-12 max-w-2xl text-lg text-slate-600">
             Estamos prontos para liderar sua jornada de transformação digital com 
             design de elite e engenharia de precisão.
           </p>
@@ -50,7 +50,7 @@ export default function CTA() {
             </a>
           </div>
 
-          <div className="mt-14 flex flex-wrap justify-center gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-white/20">
+          <div className="mt-14 flex flex-wrap justify-center gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">
             <span className="flex items-center gap-2">
               <div className="h-1 w-1 rounded-full bg-primary" /> Diagnóstico Gratuito
             </span>
@@ -66,3 +66,4 @@ export default function CTA() {
     </section>
   );
 }
+

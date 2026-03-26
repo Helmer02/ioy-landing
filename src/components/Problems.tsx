@@ -14,7 +14,7 @@ const items = [
 
 export default function Problems() {
   return (
-    <section id="problemas" className="relative py-24 bg-black">
+    <section id="problemas" className="relative py-24">
       <div className="shell">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -24,10 +24,10 @@ export default function Problems() {
           className="mx-auto mb-20 max-w-4xl text-center"
         >
           <span className="eyebrow mb-6 border-red-500/20 bg-red-500/5 text-red-500/70 uppercase">Maturidade Digital</span>
-          <h2 className="title-hero text-4xl mb-6">
-            O Problema não é a Ferramenta. É a <span className="text-white/40 italic">Arquitetura</span>.
+          <h2 className="title-hero text-4xl mb-6 text-slate-900">
+            O Problema não é a Ferramenta. É a <span className="text-slate-500 italic">Arquitetura</span>.
           </h2>
-          <p className="text-white/40 text-lg leading-relaxed">
+          <p className="text-slate-600 text-lg leading-relaxed">
             Empresas perdem velocidade quando dependem de fluxos manuais e sistemas que não conversam. 
             Nós resolvemos a base para você escalar o topo.
           </p>
@@ -41,12 +41,12 @@ export default function Problems() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05, duration: 0.5 }}
-              className="panel p-7 border border-white/5 bg-white/[0.01] flex items-center gap-5 group hover:border-red-500/20 transition-all duration-500"
+              className="panel flex items-center gap-5 border border-[var(--line)] bg-white p-7 transition-all duration-500 group hover:border-red-500/30"
             >
-              <div className="h-10 w-10 flex-shrink-0 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-red-500/10 transition-colors">
-                <item.icon className="h-5 w-5 text-white/40 group-hover:text-red-500 transition-colors" />
+              <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-slate-100 transition-colors group-hover:bg-red-500/10">
+                <item.icon className="h-5 w-5 text-slate-500 transition-colors group-hover:text-red-500" />
               </div>
-              <p className="text-sm font-semibold text-white/60 group-hover:text-white transition-colors">{item.title}</p>
+              <p className="text-sm font-semibold text-slate-700 transition-colors group-hover:text-slate-900">{item.title}</p>
             </motion.article>
           ))}
         </div>
@@ -54,3 +54,4 @@ export default function Problems() {
     </section>
   );
 }
+
